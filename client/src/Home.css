@@ -1,0 +1,95 @@
+/* src/Home.css */
+.home-container {
+  width: 100vw;
+  height: 100%; 
+  overflow: hidden;
+  
+ 
+}
+
+
+.carousel {
+  width: 100%;
+  height: 80vh; 
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-images {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-in-out;
+ 
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  border-radius: 18px;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.content-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.content-text {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.search-button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+
+.team {
+  margin-top: 20px;
+}
+
+.clients {
+  margin-top: 20px;
+}
+
+.learn-more {
+  margin-top: 20px;
+}
