@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaLightbulb } from "react-icons/fa"; // Importing an icon
+import { FaLightbulb } from "react-icons/fa";
 import "../Navbar.css";
 
 const Navbar = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-brand">
-        <FaLightbulb className="brand-icon" /> {/* Adding an icon */}
+        <FaLightbulb className="brand-icon" />
         EMPOWERHER
       </div>
       <ul className="navbar-links">
@@ -40,8 +40,6 @@ const Navbar = () => {
         <li>
           <Link to="/login">Login</Link>
         </li>
-        
-        
       </ul>
     </nav>
   );
