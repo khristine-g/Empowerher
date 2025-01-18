@@ -1,0 +1,123 @@
+.related-project-list-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100vw;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:#f9f9f9;
+}
+
+.related-project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.related-project-card {
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    width: 300px;
+    height: 450px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.related-project-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.related-project-info {
+    padding: 15px;
+}
+
+.related-project-info h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.related-project-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.related-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 6px;
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.related-progress {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    transition: width 0.4s ease;
+}
+
+.related-view-all-button {
+    margin-top: 50px;
+    padding: 12px 24px;
+    background-color: #f9d342;
+    color: #333;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.related-view-all-button:hover {
+    background-color: #333;
+    color: white;
+}
+
+.related-category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.related-category-button {
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    color: #333;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 14px;
+}
+
+.related-category-button:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.related-category-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}

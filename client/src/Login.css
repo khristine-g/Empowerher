@@ -1,49 +1,131 @@
-.login-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-form {
-    width: 500px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
+/* Container for the whole page */
+.login-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  height: 100vh;
+  background-color: #f9f9f9;
+  padding: 0;
+  margin: 0;
+}
 
+/* Content Section */
+.login-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50vw;
+}
+
+.login-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.login-description {
+  font-size: 1.2rem;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.login-features {
+  font-size: 1.1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.login-features li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.tick-icon {
+  color: #28a745;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+/* Form Section */
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  max-width: 50vw;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.form-control:focus {
+  border: 2px solid #4c9eff;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.login-btn {
+  background-color: #4c9eff;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #357ab7;
+}
+
+.login-btn:disabled {
+  background-color: #c7c7c7;
+  cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    grid-template-columns: 1fr; /* Stack columns on small screens */
   }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-  
-  .form-control {
+
+  .login-content, .login-form-container {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 20px;
   }
-  
-  .login-btn {
-    background-color: black;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    margin-left: 130px;
-    width: 200px;
-    border-radius: 64px;
-  }
-  
-  .login-btn:hover {
-    background-color: grey;
-  }
+}

@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
-import ProjectList from './Components/ProjectList';
+import Footer from './Components/Footer';
+import ViewAllProjects from './Components/ViewAllProjects';
 import ProjectDetail from './Components/ProjectDetail';
 import ContributionForm from './Components/ContributionForm';
 import Signup from './Components/Signup';
@@ -19,11 +20,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/projects/:id" element={<ProjectDetail />} />
-        <Route path="/projects" element={<ProjectList showAll={true} />} />
+        <Route path="/projects" element={<ViewAllProjects />} /> {/* Updated route */}
         <Route path="/projects/:id/contribute" element={<ContributionForm />} />
-        <Route path="/learn-more" element={<LearnMore />} /> {/* Changed path */}
+        <Route path="/learn-more" element={<LearnMore />} />
         <Route path="/submit-project" element={<SubmitProject />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

@@ -43,37 +43,48 @@ const Login = () => {
   };
 
   return (
-    <div className="login-form-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-group">
-          <label htmlFor="email">Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            aria-describedby="emailHelp"
-            value={email}
-            onChange={handleEmailChange}
-            disabled={loading}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            disabled={loading}
-          />
-        </div>
-        <Link to="/forgot-password">Forgot Password?</Link>
-        {error && <p className="error-message">{error}</p>}
-        <button type="submit" className="login-btn" disabled={loading}>
-          {loading ? 'Logging in...' : 'Log In'}
-        </button>
-      </form>
+    <div className="login-container">
+      <div className="login-content">
+        <h2 className="login-title">Welcome Back!</h2>
+        <p className="login-description">Log in to access your dashboard and manage your projects.</p>
+        <ul className="login-features">
+          <li><span className="tick-icon">✔</span> Manage your projects seamlessly.</li>
+          <li><span className="tick-icon">✔</span> Track funding progress and contributors.</li>
+          <li><span className="tick-icon">✔</span> Stay connected with your supporters.</li>
+        </ul>
+      </div>
+      <div className="login-form-container">
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <label htmlFor="email">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              value={email}
+              onChange={handleEmailChange}
+              disabled={loading}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+              disabled={loading}
+            />
+          </div>
+          <Link to="/forgot-password">Forgot Password?</Link>
+          {error && <p className="error-message">{error}</p>}
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? 'Logging in...' : 'Log In'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

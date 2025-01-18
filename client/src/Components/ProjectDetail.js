@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { seedData } from './Data.js'; // Importing seedData
+import  RelatedProjects from './RelatedProjects.js';
 import '../ProjectDetail.css';
 
 const ProjectDetail = () => {
@@ -72,7 +73,7 @@ const ProjectDetail = () => {
   return (
     <div className="project-detail">
       <div className="left-section">
-        <h2>{project.title}</h2>
+       
         <img src={project.image} alt={project.title} />
         <h1>About this project...</h1>
         <p>{project.detailed_description}</p>
@@ -81,8 +82,10 @@ const ProjectDetail = () => {
       </div>
 
       <div className="right-section">
+      <h2>{project.title}</h2>
         <div>
           <div className="progress-bar">
+
             <div className="progress" style={{ width: `${progress}%` }}></div>
           </div>
           <p className="progress-text">{Math.round(progress)}% of ${project.goal_amount} raised</p>
@@ -91,8 +94,8 @@ const ProjectDetail = () => {
             {project.owner && (
               <>
                 <img src={project.owner.image} alt={project.owner.name} />
-                <h4>Project Owner: {project.owner.name}</h4>
-                <p>{project.owner.about}</p>
+                <h4> {project.owner.name} </h4>
+                <p> {project.owner.about}</p>
               </>
             )}
           </div>
@@ -131,7 +134,9 @@ const ProjectDetail = () => {
           </form>
         </div>
       </div>
+      <RelatedProjects />
     </div>
+  
   );
 };
 

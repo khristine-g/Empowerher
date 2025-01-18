@@ -1,48 +1,62 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { IoMdMail } from 'react-icons/io';
-import { RiMapPinLine } from 'react-icons/ri';
-import { MdPhone } from 'react-icons/md';
-import '../Footer.css'; // Import the CSS file for styling
+import '../Footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer-container">
-      <div className="footer-section">
-        <h2>Empowerher</h2>
-        <p>Lorem quas utamur delicata qui, vix ei prima mentitum omnesque. Duo corrumpit cotidieque ne.</p>
-        <div className="social-media-icons">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+      <div className="footer-content">
+        {/* Column 1 */}
+        <div className="footer-column">
+          <h3>Get Started</h3>
+          <ul>
+            <li>News</li>
+            <li>Explore</li>
+            <li>FAQs</li>
+            <li>About</li>
+          </ul>
+        </div>
+
+        {/* Column 2 */}
+        <div className="footer-column">
+          <h3>Dashboard</h3>
+          <ul>
+            <li>Login</li>
+            <li>Edit Profile</li>
+            <li>Start a Project</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+
+        {/* Column 3 */}
+        <div className="footer-column">
+          <h3>Explore</h3>
+          <ul>
+            <li>Education</li>
+            <li>Film & Video</li>
+            <li>Food</li>
+            <li>Games</li>
+            <li>Technology</li>
+          </ul>
+        </div>
+
+        {/* Column 4 */}
+        <div className="footer-column">
+          <h3>Newsletter</h3>
+          <p>Join us in our mission! Subscribe to our weekly email campaigns.</p>
+          <form className="newsletter-form">
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="newsletter-input"
+            />
+            <button type="submit" className="newsletter-button">
+              Subscribe
+            </button>
+          </form>
         </div>
       </div>
-      <div className="footer-section">
-        <h2>Company</h2>
-        <ul>
-          <li><a href="/about-us">About us</a></li>
-          <li><a href="/latest-events">Latest events</a></li>
-          <li><a href="/how-it-works">How It Works</a></li>
-          <li><a href="/news-articles">News & articles</a></li>
-          <li><a href="/contact-us">Contact us</a></li>
-        </ul>
-      </div>
-      <div className="footer-section">
-        <h2>Fundraising</h2>
-        <ul>
-          <li><a href="/business">Business</a></li>
-          <li><a href="/design">Design</a></li>
-          <li><a href="/film-video">Film & Video</a></li>
-          <li><a href="/technology">Technology</a></li>
-          <li><a href="/games">Games</a></li>
-        </ul>
-      </div>
-      <div className="footer-section contact-section">
-        <h2>Contact</h2>
-        <p><MdPhone /> 666 888 0000</p>
-        <p><IoMdMail /> needhelp@potisen.com</p>
-        <p><RiMapPinLine /> 22 Brooklyn Street, New York, USA</p>
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Empowerher. All rights reserved.</p>
       </div>
     </footer>
   );

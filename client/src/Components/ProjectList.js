@@ -1,100 +1,89 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { seedData, owners, categories } from './Data.js'; // Importing the required data
-
+import { seedData, categories } from './Data.js';
 import '../ProjectList.css';
 
 const ProjectList = ({ showAll }) => {
-  const [projects, setProjects] = useState(seedData); // Initializing projects with the seed data
-  const [selectedCategoryId, setSelectedCategoryId] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [projects] = useState(seedData); // Seed data for projects
+  const [selectedCategory, setSelectedCategory] = useState(''); // Empty means "All"
   const navigate = useNavigate();
 
-  // Handle project click to navigate to details page
-  const handleClick = (id) => navigate(`/projects/${id}`);
+  // Handle project click to navigate to the details page
+  const handleProjectClick = (id) => navigate(`/projects/${id}`);
 
-  // Handle next project slide
-  const handleNext = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex < projects.length - 4 ? prevIndex + 1 : 0));
-  }, [projects.length]);
+  // Handle "View All Projects" button click
+  const handleViewAllClick = () => navigate('/projects');
 
-  // Handle previous project slide
-  const handlePrev = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : projects.length - 4));
-  }, [projects.length]);
-
-  // Auto-slide every 3 seconds
-  useEffect(() => {
-    const intervalId = setInterval(() => handleNext(), 3000);
-    return () => clearInterval(intervalId);
-  }, [handleNext]);
-
-  // Filter projects by selected category
-  const filteredProjects = selectedCategoryId
-    ? projects.filter(project => project.category === parseInt(selectedCategoryId)) // Updated to compare category as integer
+  // Filter projects based on the selected category
+  const filteredProjects = selectedCategory
+    ? projects.filter((project) => project.category === parseInt(selectedCategory))
     : projects;
+
+  // Display only the first 6 filtered projects
+  const displayedProjects = filteredProjects.slice(0, 6);
 
   return (
     <div className="project-list-container">
-      <h1>FEATURED PROJECTS</h1>
-      <p>Browse our featured projects</p>
+      <h1 className='project-list-title'>FEATURED PROJECTS</h1>
+      <p className='project-list-subtitle'> Browse our featured projects</p>
+
       {showAll && (
         <div className="filter-container">
-          <label htmlFor="category-filter">Show by Category:</label>
-          <select
-            id="category-filter"
-            value={selectedCategoryId}
-            onChange={(e) => setSelectedCategoryId(e.target.value)}
-          >
-            <option value="">All</option>
-            {categories.map(category => (
-              <option key={category.id} value={category.id}>
+          <div className="category-buttons">
+            <button
+              className={`category-button ${selectedCategory === '' ? 'active' : ''}`}
+              onClick={() => setSelectedCategory('')}
+            >
+              All
+            </button>
+           
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                className={`category-button ${
+                  selectedCategory === String(category.id) ? 'active' : ''
+                }`}
+                onClick={() => setSelectedCategory(String(category.id))}
+              >
                 {category.name}
-              </option>
+              </button>
             ))}
-          </select>
-        </div>
-      )}
-
-      <div className="carousel-container">
-        <button className="prev-btn" onClick={handlePrev}>&lt;</button>
-        <div className="carousel-slide">
-          <div className="carousel-track" style={{ transform: `translateX(-${currentIndex * 25}%)` }}>
-            {filteredProjects.map(project => {
-              const progress = (project.amount_raised / project.goal_amount) * 100;
-              return (
-                <div
-                  key={project.id}
-                  className="project-card"
-                  onClick={() => handleClick(project.id)}
-                >
-                  <div className="project-image" style={{ backgroundImage: `url(${project.image || 'default-image.jpg'})` }}></div>
-                  <div className="project-info">
-                    <h4>{project.title}</h4>
-                    <p>${project.amount_raised} raised of ${project.goal_amount}</p>
-
-                    {/* Progress Bar */}
-                    <div className="progress-bar">
-                      <div className="progress" style={{ width: `${progress}%` }}></div>
-                    </div>
-
-                    <p>{Math.round(progress)}% of goal reached</p>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
-        <button className="next-btn" onClick={handleNext}>&gt;</button>
+      )}
+
+      <div className="project-list">
+        {displayedProjects.map((project) => {
+          const progress = (project.amount_raised / project.goal_amount) * 100;
+          return (
+            <div
+              key={project.id}
+              className="project-card"
+              onClick={() => handleProjectClick(project.id)}
+            >
+              <div
+                className="project-image"
+                style={{ backgroundImage: `url(${project.image || 'default-image.jpg'})` }}
+              ></div>
+              <div className="project-info">
+                <h4>{project.title}</h4>
+                <p>${project.amount_raised} raised of ${project.goal_amount}</p>
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: `${progress}%` }}></div>
+                </div>
+                <p>{Math.round(progress)}% of goal reached</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
-      {!showAll && (
-        <button className="view-all-button" onClick={() => navigate('/projects')}>
-          View All Projects
-        </button>
-      )}
+      <button className="view-all-button" onClick={handleViewAllClick}>
+        View All Projects
+      </button>
     </div>
   );
 };
+
 
 export default ProjectList;

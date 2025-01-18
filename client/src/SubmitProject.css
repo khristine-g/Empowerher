@@ -1,56 +1,187 @@
+/* Full Page Container with Grid Layout */
 .submit-project-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-    background-color: #f4f4f4;
-    height: 100vh;
-    margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns (50% each) */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: #f9f9f9;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  gap: 0;
+  transition: all 0.3s ease;
+}
+
+
+/* Content Side */
+.submit-project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  width: 50vw; /* Content occupies 50% of the viewport width */
+}
+
+.submit-project-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.submit-project-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #777;
+  font-style: italic;
+}
+
+.submit-project-features {
+  font-size: 1.1rem;
+  color: #444;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.submit-project-features li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+.submit-project-features li:hover {
+  color: #007bff;
+}
+
+/* Ticks for content points */
+.tick-icon {
+  color: #28a745;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+/* Form Side */
+.submit-project-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  max-width: 50vw; /* Form occupies 50% of the viewport width */
+
+  border-radius: 8px;
+
+  animation: slideIn 1s ease-out;
+  margin: 0;
+  width: 60%;
+}
+
+.submit-project-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 20px;
+  padding: 30px;
+}
+
+.submit-project-form label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.submit-project-form input,
+.submit-project-form textarea {
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  transition: all 0.3s ease;
+}
+
+.submit-project-form input:focus,
+.submit-project-form textarea:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 180, 255, 0.5);
+}
+
+.submit-project-form input::placeholder,
+.submit-project-form textarea::placeholder {
+  color: #777;
+}
+
+/* Button Styling */
+.submit-project-button {
+  padding: 15px 25px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  width: 30%;
+  color: #fff;
+  /* background: linear-gradient(90deg, #28a745, #218838); */
+  background-color: #f9d342;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-project-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.submit-project-button:active {
+  transform: scale(1);
+}
+
+/* Increased Textarea Height */
+.submit-project-form textarea {
+  height: 300px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .submit-project-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333333;
-    margin-bottom: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .submit-project-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 600px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
   }
-  
-  .submit-project-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  
-  .submit-project-form input,
-  .submit-project-form textarea {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    
-    
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .submit-project-container {
+    grid-template-columns: 1fr; /* Stack columns on small screens */
+    gap: 20px;
   }
-  
-  .submit-project-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+
+  .submit-project-form-container {
+    padding: 30px;
   }
-  
-  .submit-project-button:hover {
-    background-color: #0056b3;
+
+  .submit-project-content {
+    padding: 20px;
+    max-width: 100%; /* Content now uses full width on small screens */
   }
-  
+}

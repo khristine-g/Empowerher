@@ -6,7 +6,7 @@
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin-top: 100px;
@@ -14,13 +14,13 @@
   
   .project-detail .left-section {
     flex: 1;
-    margin-right: 400px;
+    margin-right: 200px;
   }
   
   .project-detail .left-section img {
-    width: 500px;
-    height: auto;
-    border-radius: 8px;
+    width: 700px;
+    height: 500px;
+    border-radius: 18px;
     margin-bottom: 20px;
     object-fit: cover;
   }
@@ -73,6 +73,7 @@
     font-size: 1.2rem;
     color: #444;
     margin-top: 20px;
+    margin: 10px;
   }
   
   .project-detail ul {
@@ -103,15 +104,18 @@
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
-    color: white;
-    background-color: green;
+    background-color: #f9d342;
+    color: #333;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 20px;
   }
   
   .contribute-button:hover {
-    background-color: darkgreen;
+    background-color: #333;
+  color: white;
+  transform: scale(1.05);
+    
   }
   .project-comment{
 

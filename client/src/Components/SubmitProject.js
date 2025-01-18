@@ -46,40 +46,56 @@ const SubmitProject = () => {
       console.error('An error occurred:', error);
     }
   };
-  
 
   return (
     <div className="submit-project-container">
-      <h2 className="submit-project-title">Submit Your Project</h2>
-      <form className="submit-project-form" onSubmit={handleSubmit}>
-        <label htmlFor="projectName">Project Name:</label>
-        <input
-          type="text"
-          id="projectName"
-          name="projectName"
-          value={formData.projectName}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="projectDescription">Project Description:</label>
-        <textarea
-          id="projectDescription"
-          name="projectDescription"
-          value={formData.projectDescription}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="contactEmail">Contact Email:</label>
-        <input
-          type="email"
-          id="contactEmail"
-          name="contactEmail"
-          value={formData.contactEmail}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit" className="submit-project-button">Submit</button>
-      </form>
+      
+      <div className="submit-project-content">
+        <h2 className="submit-project-title">Submit Your Groundbreaking Project</h2>
+        <p className="submit-project-subtitle">
+          We want to help turn your idea into reality! Provide detailed information about your project to get started.
+        </p>
+        <ul className="submit-project-features">
+          <li><span className="tick-icon">✔</span> Raise funding for your project from a supportive community.</li>
+          <li><span className="tick-icon">✔</span> Get noticed by investors and industry experts.</li>
+          <li><span className="tick-icon">✔</span> Share your project with a global audience.</li>
+          <li><span className="tick-icon">✔</span> Track progress and grow your network.</li>
+        </ul>
+      </div>
+      <div className="submit-project-form-container">
+        <form className="submit-project-form" onSubmit={handleSubmit}>
+         
+          <input
+            type="text"
+            id="projectName"
+            name="projectName"
+            value={formData.projectName}
+            onChange={handleChange}
+            placeholder="Enter the name of your project"
+            required
+          />
+       
+          <textarea
+            id="projectDescription"
+            name="projectDescription"
+            value={formData.projectDescription}
+            onChange={handleChange}
+            placeholder="Describe your project in detail"
+            required
+          />
+      
+          <input
+            type="email"
+            id="contactEmail"
+            name="contactEmail"
+            value={formData.contactEmail}
+            onChange={handleChange}
+            placeholder="Enter your email address"
+            required
+          />
+          <button type="submit" className="submit-project-button">Submit Project</button>
+        </form>
+      </div>
     </div>
   );
 };

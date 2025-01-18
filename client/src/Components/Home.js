@@ -6,12 +6,12 @@ import LearnMore from './LearnMore';
 import Clients from './Clients';
 import Team from './Team';
 import ProjectStats from './ProjectStats';
-import Footer from './Footer';
+
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const images = [
-    "https://www.essence.com/wp-content/uploads/2018/11/GettyImages-906798272.jpg",
+    "https://www.cosmeticdigital.co.uk/wp-content/uploads/2023/09/The-Best-Hashtags-for-Instagram.jpg",
     "https://www.bankrate.com/2023/03/13104907/grants-for-black-women.jpeg?auto=webp&optimize=high&crop=16:9",
     "https://o-yeshomeloans.co.za/wp-content/uploads/2022/08/How-to-clear-your-credit-score-if-you-want-to-buy-a-house.jpg"
   ];
@@ -43,28 +43,26 @@ const Home = () => {
             We are dedicated to supporting innovative and impactful projects in our community. Explore our projects and find out how you can contribute.
           </p>
           <Link to='/projects'> 
-            <button className="search-button">Browse Projects</button>
+            <button className="search-button">Explore Projects</button>
           </Link>
         </div>
       </div>
       <div className="project-list">
+     
         <ProjectList />
+      </div>
+      <div className="project-stats">
+        <ProjectStats />
       </div>
       <div className="learn-more">
         <LearnMore />
       </div>
-     
       <div className="clients">
         <Clients />
       </div>
-      <div className="clients">
-        <ProjectStats />
-      </div>
+     
       <div className="team">
         <Team />
-      </div>
-      <div className="team">
-        <Footer />
       </div>
       
     </div>

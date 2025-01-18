@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import '../Signup.css';
-import { useNavigate } from 'react-router-dom';
+import '../Signup.css'; // Import CSS file for styling
 
 const Signup = () => {
   const [username, setUserName] = useState('');
@@ -8,7 +7,6 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleUserNameChange = (e) => setUserName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
@@ -41,7 +39,7 @@ const Signup = () => {
       });
 
       if (response.ok) {
-        navigate('/login');
+        window.location.href = '/login'; // Redirect after successful signup
       } else {
         const errorMessage = await response.text();
         setError(`Signup failed: ${errorMessage}`);
@@ -54,8 +52,17 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
+      <div className="signup-content">
+        <h2 className="signup-title">Join Our Community</h2>
+        <p className="signup-description">Create an account and start your journey with us.</p>
+        <ul className="signup-features">
+          <li><span className="tick-icon">✔</span> Share your amazing projects with the world.</li>
+          <li><span className="tick-icon">✔</span> Connect with investors and collaborators.</li>
+          <li><span className="tick-icon">✔</span> Track your project's progress easily.</li>
+        </ul>
+      </div>
       <div className="signup-form-container">
-        <form onSubmit={handleSubmit} className="signup-form">
+        <form className="signup-form" onSubmit={handleSubmit}>
           {error && <p className="error-message">{error}</p>}
           <div className="form-group">
             <label htmlFor="name">Name:</label>
@@ -102,9 +109,7 @@ const Signup = () => {
             />
             {confirmPassword !== password && <p className="input-error-message">Passwords do not match.</p>}
           </div>
-          <button type="submit" className="signup-btn">
-            Sign Up
-          </button>
+          <button type="submit" className="signup-btn">Sign Up</button>
         </form>
       </div>
     </div>

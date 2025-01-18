@@ -1,61 +1,172 @@
-.project-list-container {
-  margin-top: 100px;
-  text-align: center;
-  margin-bottom: 100px;
-}
 
-.carousel-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-slide {
-  display: flex;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  width: 100%;
-}
-
+  .project-list-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    justify-content: center; /* Centers the content vertically if needed */
+    text-align: center;
+  }
+  
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 20px; /* Space between cards */
+    width: 80%; /* Controls the width of the grid */
+    max-width: 1200px; /* Prevents the grid from being too wide */
+    margin: 0 auto; /* Centers the grid horizontally */
+  }
+  
+  .project-card {
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    width: 300px; /* Fixed width for cards */
+    height: 450px; /* Fixed height for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .project-image {
+    height: 200px; /* Adjust the height */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+  }
+  
+  .project-info {
+    padding: 15px;
+  }
+  
+  .project-info h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .project-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 6px;
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  
+  .progress {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    transition: width 0.4s ease;
+  }
+  
+  .view-all-button {
+    margin-top: 50px;
+    padding: 12px 24px;
+    background-color: #f9d342;
+    color: #333;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-all-button:hover {
+    background-color: #333;
+    color: white;
+  }
+  
+  .category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px;
+  }
+  
+  .category-button {
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    color: #333;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 14px;
+  }
+  
+  .category-button:hover {
+    background-color: #f0f0f0;
+    color: #000;
+  }
+  
+  .category-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+ 
 .project-card {
-  height: 600px;
-  width: 100%;
-  gap: 20px;
-  flex: 0 0 25%; /* 4 projects visible at a time */
-  padding: 16px;
-  text-align: center;
-  box-sizing: border-box;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   cursor: pointer;
+  width: 300px; /* Fixed width for cards */
+  height: 450px; /* Fixed height for cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project-image {
-  height: 400px;
+  height: 200px; /* Adjust the height */
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  border-radius: 10px 10px 0 0; /* Rounded top corners */
 }
 
 .project-info {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
+  padding: 15px;
 }
 
-/* Progress Bar */
+.project-info h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
 .progress-bar {
   background-color: #e0e0e0;
   border-radius: 10px;
-  height: 20px;
-  width: 90%;
-  margin: 10px auto;
+  height: 6px;
+  width: 100%;
+  margin: 10px 0;
   overflow: hidden;
 }
 
@@ -64,49 +175,50 @@
   height: 100%;
   width: 0;
   transition: width 0.4s ease;
-  border-radius: 10px;
 }
 
-.prev-btn, .next-btn {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 140%;
-  transform: translateY(-30%);
-  z-index: 1;
-}
-
-.prev-btn {
-  left: 0;
-  margin-left: 100px;
-}
-
-.next-btn {
-  right: 0;
-  margin-right: 100px;
-}
-
-.prev-btn:hover, .next-btn:hover {
-  background-color: #555;
-}
-
-/* View All Button */
 .view-all-button {
   margin-top: 50px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  padding: 12px 24px;
+  background-color: #f9d342;
+  color: #333;
   border: none;
-  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  text-align: center;
+  transition: background-color 0.3s ease;
 }
 
 .view-all-button:hover {
-  background-color: #0056b3;
+  background-color: #333;
+  color: white;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.category-button {
+  padding: 10px 20px;
+  border: 1px solid #e0e0e0;
+  background-color: white;
+  color: #333;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+}
+
+.category-button:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.category-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
 }

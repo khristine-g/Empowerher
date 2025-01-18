@@ -1,32 +1,49 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FaCheckCircle } from 'react-icons/fa'; // For the tick/checkmark icon
+import { useNavigate } from 'react-router-dom'; // React Router for navigation
 import '../LearnMore.css'; // Import the CSS file for styling
 
 const LearnMore = () => {
-  const navigate = useNavigate();
-
-  const handleLearnMoreClick = () => {
-    navigate('/submit-project');
-  };
+  const navigate = useNavigate(); // Hook for programmatic navigation
 
   return (
-    <div className="learnmore-container">
-      <div className="carousel-slide">
+    <div className="learnmore-grid-container">
+      <div className="learnmore-content">
+        <h2 className="learnmore-title">
+          We Help at Every Step from Concept to Market
+        </h2>
+        <p className="learnmore-paragraph">
+          Discover projects just for you and get great recommendations when you
+          select your interests.
+        </p>
+        <ul className="learnmore-bullets">
+          <li>
+            <FaCheckCircle className="bullet-icon" />
+            Raise funds with a crowdfunding campaign
+          </li>
+          <li>
+            <FaCheckCircle className="bullet-icon" />
+            Extend your campaign with InDemand
+          </li>
+          <li>
+            <FaCheckCircle className="bullet-icon" />
+            Fast track to the global market
+          </li>
+        </ul>
+        <button
+          className="learnmore-submit-button"
+          onClick={() => navigate('/submit-project')}
+        >
+          Submit Your Project
+        </button>
+      </div>
+
+      <div className="learnmore-image-container">
         <img
-          src=" https://t3.ftcdn.net/jpg/04/22/96/52/360_F_422965230_WnyQ93M3iTjgpS0AiWlhBoL3dGqGC0IZ.jpg"
+          src="https://www.cosmeticdigital.co.uk/wp-content/uploads/2023/09/The-Best-Hashtags-for-Instagram.jpg"
           alt="Creative Project"
           className="learnmore-image"
         />
-        <div className="learnmore-content">
-        <p className="learnmore-paragraph">
-            The world is full of creativity
-          </p>
-          <h2 className="learnmore-title">Bring your creative project to life</h2>
-          
-          <button className="submitproject-button" onClick={handleLearnMoreClick}>
-            Submit a Project
-          </button>
-        </div>
       </div>
     </div>
   );
