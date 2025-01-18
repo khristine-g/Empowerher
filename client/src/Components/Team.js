@@ -16,7 +16,7 @@ const Team = () => {
             img: "https://peopleofcolorintech.com/wp-content/uploads/2022/10/AdobeStock_297800292-scaled-1.jpeg",
           },
           {
-            name: "Mark Newland",
+            name: " Jenn Lisa",
             role: "CTO",
             img: "https://www.stemwomen.com/wp-content/uploads/2021/03/Meet-Mark-Newland...-44-720x520.jpg",
           },
@@ -26,7 +26,7 @@ const Team = () => {
             img: "https://afrikanheroes.com/wp-content/uploads/2022/07/women-in-tech.jpg",
           },
           {
-            name: "John Doe",
+            name: " Andrea Lewis",
             role: "Project Manager",
             img: "https://imageio.forbes.com/specials-images/imageserve/65a6147061a04b75f1e7064b/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
           },

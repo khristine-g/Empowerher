@@ -10,6 +10,7 @@ import Signup from './Components/Signup';
 import Login from './Components/Login';
 import LearnMore from './Components/LearnMore';
 import SubmitProject from './Components/SubmitProject'; // Updated import path
+import Contact from './Components/Contact';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/projects/:id/contribute" element={<ContributionForm />} />
         <Route path="/learn-more" element={<LearnMore />} />
         <Route path="/submit-project" element={<SubmitProject />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>
