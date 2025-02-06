@@ -4,18 +4,19 @@
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers the content horizontally */
-  justify-content: center; /* Centers the content vertically if needed */
+  align-items: center; 
   text-align: center;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .project-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 20px; /* Space between cards */
-  width: 80%; /* Controls the width of the grid */
-  max-width: 1200px; /* Prevents the grid from being too wide */
-  margin: 0 auto; /* Centers the grid horizontally */
+  grid-template-columns: repeat(3, 1fr); /* 3 projects per row on large screens */
+  gap: 20px;
+  width: 100%;
+  width: 70vw; 
+  margin: 0 auto;
 }
 
 .project-card {
@@ -25,8 +26,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   cursor: pointer;
-  width: 300px; /* Fixed width for cards */
-  height: 450px; /* Fixed height for cards */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -36,26 +35,14 @@
 }
 
 .project-image {
-  height: 200px; /* Adjust the height */
+  height: 200px;
   background-size: cover;
   background-position: center;
-  border-radius: 10px 10px 0 0; /* Rounded top corners */
+  border-radius: 10px 10px 0 0;
 }
 
 .project-info {
   padding: 15px;
-}
-
-.project-info h4 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.project-info p {
-  font-size: 14px;
-  color: #666;
-  margin: 5px 0;
 }
 
 .progress-bar {
@@ -70,7 +57,6 @@
 .progress {
   background-color: #4caf50;
   height: 100%;
-  width: 0;
   transition: width 0.4s ease;
 }
 
@@ -93,9 +79,9 @@
 .category-buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
   margin: 20px 0;
-  padding: 10px;
 }
 
 .category-button {
@@ -120,33 +106,28 @@
   border-color: #007bff;
 }
 
-/* Responsive styles */
-@media (max-width: 1200px) {
+/* Responsive Design */
+
+/* Medium screens (tablets, smaller desktops) - 2 projects per row */
+@media (max-width: 1024px) {
   .project-list {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
-  }
-  .project-card {
-    width: 45%; /* Adjust the card width */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+/* Small screens (phones) - 2 projects per row */
+@media (max-width: 600px) {
   .project-list {
-    grid-template-columns: 1fr; /* 1 card per row */
-    width: 90%; /* Increase the width for smaller screens */
+    grid-template-columns: repeat(2, 1fr);
   }
   .project-card {
-    width: 100%; /* Full-width cards */
-    height: auto; /* Adjust height for smaller screens */
-  }
-  .category-buttons {
-    flex-direction: column;
+    width: 100%;
   }
 }
 
-@media (max-width: 480px) {
-  .view-all-button {
-    padding: 10px 20px; /* Smaller padding for smaller screens */
-    font-size: 14px; /* Smaller text */
+/* Extra small screens (narrow phones) - 1 project per row */
+@media (max-width: 450px) {
+  .project-list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

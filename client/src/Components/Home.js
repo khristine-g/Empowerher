@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../Home.css';
 import ProjectList from "./ProjectList";
 import LearnMore from './LearnMore';
-import Clients from './Clients';
+import Testimonials from './Testimonials';
 import Team from './Team';
 import ProjectStats from './ProjectStats';
 
@@ -58,7 +58,7 @@ const Home = () => {
         <LearnMore />
       </div>
       <div className="clients">
-        <Clients />
+        <Testimonials />
       </div>
      
       <div className="team">

@@ -4,28 +4,23 @@ import { seedData, categories } from './Data.js';
 import '../ProjectList.css';
 
 const ProjectList = ({ showAll }) => {
-  const [projects] = useState(seedData); // Seed data for projects
-  const [selectedCategory, setSelectedCategory] = useState(''); // Empty means "All"
+  const [projects] = useState(seedData);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const navigate = useNavigate();
 
-  // Handle project click to navigate to the details page
   const handleProjectClick = (id) => navigate(`/projects/${id}`);
-
-  // Handle "View All Projects" button click
   const handleViewAllClick = () => navigate('/projects');
 
-  // Filter projects based on the selected category
   const filteredProjects = selectedCategory
     ? projects.filter((project) => project.category === parseInt(selectedCategory))
     : projects;
 
-  // Display only the first 6 filtered projects
   const displayedProjects = filteredProjects.slice(0, 6);
 
   return (
     <div className="project-list-container">
-      <h1 className='project-list-title'>FEATURED PROJECTS</h1>
-      <p className='project-list-subtitle'> Browse our featured projects</p>
+      <h1 className="project-list-title">FEATURED PROJECTS</h1>
+      <p className="project-list-subtitle">Browse our featured projects</p>
 
       {showAll && (
         <div className="filter-container">
@@ -36,7 +31,6 @@ const ProjectList = ({ showAll }) => {
             >
               All
             </button>
-           
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -84,6 +78,5 @@ const ProjectList = ({ showAll }) => {
     </div>
   );
 };
-
 
 export default ProjectList;

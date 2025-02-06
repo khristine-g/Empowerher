@@ -8,10 +8,11 @@ const ProjectStats = () => {
   useEffect(() => {
     const handleScroll = () => {
       const element = document.getElementById('stats-section');
-      const position = element.getBoundingClientRect();
-
-      if (position.top < window.innerHeight && position.bottom >= 0) {
-        setInView(true);
+      if (element) {
+        const position = element.getBoundingClientRect();
+        if (position.top < window.innerHeight && position.bottom >= 0) {
+          setInView(true);
+        }
       }
     };
 
@@ -27,7 +28,7 @@ const ProjectStats = () => {
           <h3>Completed Projects</h3>
         </div>
         <div className="stats-card">
-          {inView && <div className="count"><CountUp start={0} end={800000} duration={3}  />+</div>}
+          {inView && <div className="count"><CountUp start={0} end={800000} duration={3} />+</div>}
           <h3>Raised to Date</h3>
         </div>
         <div className="stats-card">

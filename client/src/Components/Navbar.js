@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaLightbulb } from "react-icons/fa";
+import { FaLightbulb, FaBars } from "react-icons/fa";
 import "../Navbar.css";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,27 +19,32 @@ const Navbar = () => {
     };
   }, []);
 
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-brand">
         <FaLightbulb className="brand-icon" />
         EMPOWERHER
       </div>
-      <ul className="navbar-links">
+      <div className="navbar-toggle" onClick={toggleMenu}>
+        <FaBars />
+      </div>
+      <ul className={`navbar-links ${isMenuOpen ? "active" : ""}`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
         </li>
         <li>
-          <Link to="/submit-project">Submit Project</Link>
+          <Link to="/submit-project" onClick={() => setIsMenuOpen(false)}>Submit Project</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
         </li>
         <li>
-          <Link to="/signup">Signup</Link>
+          <Link to="/signup" onClick={() => setIsMenuOpen(false)}>Signup</Link>
         </li>
         <li>
-          <Link to="/login">Login</Link>
+          <Link to="/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
         </li>
       </ul>
     </nav>

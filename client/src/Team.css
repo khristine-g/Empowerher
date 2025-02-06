@@ -33,6 +33,7 @@
   width: 300px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 15px;
 }
 
 .team-card:hover {
@@ -42,7 +43,6 @@
 
 .team-image {
   height: 250px;
-  
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease;
@@ -69,6 +69,7 @@
   color: #555;
 }
 
+/* Mobile and Tablet Devices */
 @media (max-width: 768px) {
   .team-container {
     flex-direction: column;
@@ -77,5 +78,47 @@
 
   .team-card {
     width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .team-image {
+    height: 200px; /* Slightly reduce image height for smaller screens */
+  }
+
+  .team-title {
+    font-size: 1.8rem; /* Adjust title size */
+  }
+
+  .team-description {
+    font-size: 1rem; /* Adjust description size */
+    max-width: 500px;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+  .team-title {
+    font-size: 1.5rem; /* Further reduce the title size */
+  }
+
+  .team-description {
+    font-size: 0.9rem; /* Adjust description font size for better readability */
+    margin-bottom: 20px;
+  }
+
+  .team-card {
+    width: 100%; /* Cards take full width */
+  }
+
+  .team-image {
+    height: 180px; /* Reduce image size even further on small screens */
+  }
+
+  .team-name {
+    font-size: 1.3rem; /* Adjust name size */
+  }
+
+  .team-role {
+    font-size: 1rem; /* Adjust role font size */
   }
 }
